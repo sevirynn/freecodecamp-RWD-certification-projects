@@ -1,0 +1,101 @@
+<!-- 
+Checklist of requirements:
+
+-- = complete
+
+    --You should have a page title in an h1 element with an id of title
+    --You should have a short explanation in a p element with an id of description
+    --You should have a form element with an id of survey-form
+    --Inside the form element, you are required to enter your name in an input field that has an id of name and a type of text
+    --Inside the form element, you are required to enter your email in an input field that has an id of email
+    --If you enter an email that is not formatted correctly, you will see an HTML5 validation error
+    --Inside the form, you can enter a number in an input field that has an id of number
+    --The number input should not accept non-numbers, either by preventing you from typing them or by showing an HTML5 validation error (depending on your browser).
+    --If you enter numbers outside the range of the number input, which are defined by the min and max attributes, you will see an HTML5 validation error
+    --For the name, email, and number input fields, you can see corresponding label elements in the form, that describe the purpose of each field with the following ids: id="name-label", id="email-label", and id="number-label"
+    --For the name, email, and number input fields, you can see placeholder text that gives a description or instructions for each field
+    --Inside the form element, you should have a select dropdown element with an id of dropdown and at least two options to choose from
+    --Inside the form element, you can select an option from a group of at least two radio buttons that are grouped using the name attribute
+    --Inside the form element, you can select several fields from a series of checkboxes, each of which must have a value attribute
+    --Inside the form element, you are presented with a textarea for additional comments
+    --Inside the form element, you are presented with a button with id of submit to submit all the inputs
+
+General idea - create a form that can be used by the game group for suggesting new titles to play
+
+Drop down can be the type of games that we currently categorize within
+Number field could be steam/itchio price
+Textarea could be a general description with a smaller text area for hte name of the game. 
+
+
+
+
+-->
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+	<title>Game Suggestion Form</title>
+</head>
+
+<h1 id="title">Game Suggestion Form</h1>
+
+<p id="description">Got a new game for the group to try out? Submit the information here and it will be formatted and dropped into the #game-suggestion channel! 
+
+<form method="post" action="null placeholder" id="survey-form">
+    
+<fieldset>
+    <h3>Your Details</h3>
+    <label for="name-label" id="name-label" >Enter your Name <input type="text" placeholder="Username" required></label>
+    <label for="email-label" id="email-label">Enter your Email Address <input type="email" id="email" placeholder="email@domain.com" required></label>
+</fieldset>
+<br>
+
+<fieldset>
+    <h3>Game Details</h3>
+    <label for="name">Game Name: <input type="text" id="name" required placeholder="Amogus"></label>
+    <label for="number-label" id="number-label" ">Game Price (USD) <input type="number" id="number" min="0" max="200" placeholder="0" required></label>
+    <label for="dropdown" required> 
+      Game Genre
+        <select name="dropdown" id="dropdown">
+                <option>(select one)</option>
+                <option>Tabletop</option>
+                <option>Card</option>
+                <option>Party</option>
+                <option>Co-op</option>
+                <option>VS</option>
+                <option>Other/Unlisted</option>
+        </select>
+    </label>
+</fieldset>
+<br>
+
+<fieldset>
+    <h3>Game Platform</h3>
+    <label><input id="steam" type="radio" name="game-platform" value="steam" checked> Steam</label>
+    <label><input id="playstation" type="radio" name="game-platform" value="playstation">Playstation</label>
+    <label><input id="xbox" type="radio" name="game-platform" value="xbox">Xbox</label>
+    <label><input id="nintendo" type="radio" name="game-platform" value="nintendo">Nintendo</label>
+    <label><input id="download" type="radio" name="game-platform" value="download">Direct Download</label>
+</fieldset>
+<br>
+
+<fieldset>
+    <h3>Which operating systems are natively supported?:</h3>
+    <label><input id="windows" type="checkbox" name="platform" value="windows" checked>Windows</label>
+    <label><input id="mac" type="checkbox" name="platform" value="mac">MacOS</label>
+    <label><input id="linux" type="checkbox" name="platform" value="linux">Linux</label>
+    <label><input id="notapp" type="checkbox" name="platform" value="notapp">N/A</label>
+</fieldset>
+<br>
+
+<fieldset>
+    <label for="description"><h3>Game short description:</h3></label>
+    <textarea id="game-description" name="game-description" rows="3" cols="50" placeholder="This game is all about..." required></textarea>
+
+</fieldset>
+
+<br>
+<button type="submit" id="submit">Submit</button>
+
+</form>
